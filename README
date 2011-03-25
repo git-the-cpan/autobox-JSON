@@ -1,0 +1,43 @@
+NAME
+    autobox::JSON - bringing JSON functions to autobox
+
+VERSION
+    version 0.0001
+
+SYNOPSIS
+        use autobox::JSON;
+
+        say {name => 'Jim', age => 34}->to_json;
+        # {"name":"Jim","age":46}
+    
+        my $person = '{"name":"Jim","age":46}'->from_json
+        # {name => 'Jim', age => 34}
+
+        my $serialized_person = $person->to_json;
+        # {"name":"Jim","age":46}
+    
+        # works on arrays too
+        [1, 2, 3, 4, 5]->to_json;
+
+METHODS
+  to_json
+    This method behaves the same as the function defined in "JSON".
+
+  from_json
+    This method behaves the as the function defined in "JSON".
+
+SEE ALSO
+    "autobox" "JSON" "autobox::Core"
+
+AUTHOR
+    Robin Edwards, <robin.ge@gmail.com>
+
+    <http://github.com/robinedwards/>
+
+COPYRIGHT AND LICENSE
+    Copyright (C) 2011 by Robin Edwards
+
+    This library is free software; you can redistribute it and/or modify it
+    under the same terms as Perl itself, either Perl version 5.12.3 or, at
+    your option, any later version of Perl 5 you may have available.
+
