@@ -1,12 +1,12 @@
 package autobox::JSON;
 BEGIN {
-  $autobox::JSON::VERSION = '0.0002';
+  $autobox::JSON::VERSION = '0.0003';
 }
 use 5.008;
 use strict;
 use warnings;
 
-use parent 'autobox';
+use base 'autobox';
 
 sub import {
     my ($class) = @_;
@@ -24,7 +24,7 @@ autobox::JSON - bringing JSON functions to autobox
 
 =head1 VERSION
 
-version 0.0002
+version 0.0003
 
 =head1 SYNOPSIS
 
@@ -54,7 +54,7 @@ This method behaves the as the function defined in C<JSON>.
 
 =head1 SEE ALSO
 
-C<autobox> C<JSON> C<autobox::Core>
+L<autobox>, L<JSON> L<autobox::Core>
 
 =head1 AUTHOR
 
@@ -74,14 +74,14 @@ at your option, any later version of Perl 5 you may have available.
 
 package autobox::JSON::String;
 BEGIN {
-  $autobox::JSON::String::VERSION = '0.0002';
+  $autobox::JSON::String::VERSION = '0.0003';
 }
 require JSON;
 sub from_json { JSON::from_json(shift); }
 
 package autobox::JSON::Ref;
 BEGIN {
-  $autobox::JSON::Ref::VERSION = '0.0002';
+  $autobox::JSON::Ref::VERSION = '0.0003';
 }
 require JSON;
 sub to_json { JSON::to_json(shift); }
