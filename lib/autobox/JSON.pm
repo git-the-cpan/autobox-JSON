@@ -1,12 +1,12 @@
 package autobox::JSON;
-BEGIN {
-  $autobox::JSON::VERSION = '0.0003';
+{
+  $autobox::JSON::VERSION = '0.0004';
 }
 use 5.008;
 use strict;
 use warnings;
 
-use base 'autobox';
+use parent 'autobox';
 
 sub import {
     my ($class) = @_;
@@ -24,37 +24,62 @@ autobox::JSON - bringing JSON functions to autobox
 
 =head1 VERSION
 
-version 0.0003
+version 0.0004
 
 =head1 SYNOPSIS
 
     use autobox::JSON;
 
-    say {name => 'Jim', age => 34}->to_json;
+    say {name => 'Jim', age => 34}->encode_json;
     # {"name":"Jim","age":46}
-    
-    my $person = '{"name":"Jim","age":46}'->from_json
+
+    my $person = '{"name":"Jim","age":46}'->decode_json
     # {name => 'Jim', age => 34}
 
-    my $serialized_person = $person->to_json;
+    my $serialized_person = $person->encode_json;
     # {"name":"Jim","age":46}
-    
+
     # works on arrays too
-    [1, 2, 3, 4, 5]->to_json;
+    [1, 2, 3, 4, 5]->encode_json;
 
 =head1 METHODS
 
-=head2 to_json 
+=head2 encode_json
 
-This method behaves the same as the function defined in C<JSON>.
+This method behaves the same as L<JSON/encode_json>.
 
-=head2 from_json
+=head2 encode_json_pretty
 
-This method behaves the as the function defined in C<JSON>. 
+This method is identical to L</encode_json>, except that it also "prettifies"
+the output, making it easier for us mortals to read.  This is useful
+especially when dumping a JSON structure to something reasonable for, say,
+debug or other purposes.
+
+It is functionally the same as:
+
+    JSON->new->utf8->pretty->encode($ref)
+
+=head2 decode_json
+
+This method behaves the same as L<JSON/decode_json>.
+
+=head2 to_json (depreciated)
+
+This method behaves the same as L<JSON/to_json>.
+
+This method is depreciated because the JSON documentation itself
+prefers encode_json.
+
+=head2 from_json (depreciated)
+
+This method behaves the same as L<JSON/from_json>.
+
+This method is depreciated as the JSON documentation itself
+prefers decode_json.
 
 =head1 SEE ALSO
 
-L<autobox>, L<JSON> L<autobox::Core>
+C<autobox> C<JSON> C<autobox::Core>
 
 =head1 AUTHOR
 
@@ -73,17 +98,20 @@ at your option, any later version of Perl 5 you may have available.
 =cut
 
 package autobox::JSON::String;
-BEGIN {
-  $autobox::JSON::String::VERSION = '0.0003';
+{
+  $autobox::JSON::String::VERSION = '0.0004';
 }
 require JSON;
 sub from_json { JSON::from_json(shift); }
+sub decode_json { JSON::decode_json(shift); }
 
 package autobox::JSON::Ref;
-BEGIN {
-  $autobox::JSON::Ref::VERSION = '0.0003';
+{
+  $autobox::JSON::Ref::VERSION = '0.0004';
 }
 require JSON;
 sub to_json { JSON::to_json(shift); }
+sub encode_json { JSON::encode_json(shift); }
+sub encode_json_pretty { JSON->new->utf8->pretty->encode(shift); }
 
 1;

@@ -6,4 +6,5 @@ Makefile.PL
 README
 dist.ini
 lib/autobox/JSON.pm
+t/encode-decode.t
 t/sanity.t
