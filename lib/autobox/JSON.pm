@@ -1,5 +1,5 @@
 package autobox::JSON;
-$autobox::JSON::VERSION = '0.0005';
+$autobox::JSON::VERSION = '0.0006';
 use 5.008;
 use strict;
 use warnings;
@@ -22,7 +22,7 @@ autobox::JSON - bringing JSON functions to autobox
 
 =head1 VERSION
 
-version 0.0005
+version 0.0006
 
 =head1 SYNOPSIS
 
@@ -98,13 +98,13 @@ at your option, any later version of Perl 5 you may have available.
 =cut
 
 package autobox::JSON::String;
-$autobox::JSON::String::VERSION = '0.0005';
+$autobox::JSON::String::VERSION = '0.0006';
 require JSON;
 sub from_json { JSON::from_json(shift); }
 sub decode_json { JSON::decode_json(shift); }
 
 package autobox::JSON::Ref;
-$autobox::JSON::Ref::VERSION = '0.0005';
+$autobox::JSON::Ref::VERSION = '0.0006';
 require JSON;
 sub to_json { JSON::to_json(shift); }
 sub encode_json { JSON::encode_json(shift); }

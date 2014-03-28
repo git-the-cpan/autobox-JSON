@@ -2,7 +2,7 @@ NAME
     autobox::JSON - bringing JSON functions to autobox
 
 VERSION
-    version 0.0005
+    version 0.0006
 
 SYNOPSIS
         use autobox::JSON;

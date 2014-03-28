@@ -32,7 +32,7 @@
       }
    },
    "release_status" : "stable",
-   "version" : "0.0005",
+   "version" : "0.0006",
    "x_contributors" : [
       "Chris Weyl <cweyl@alumni.drew.edu>"
    ]
