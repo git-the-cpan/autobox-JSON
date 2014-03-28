@@ -2,7 +2,7 @@ NAME
     autobox::JSON - bringing JSON functions to autobox
 
 VERSION
-    version 0.0004
+    version 0.0005
 
 SYNOPSIS
         use autobox::JSON;
@@ -31,11 +31,12 @@ METHODS
 
     It is functionally the same as:
 
-        JSON->new->utf8->pretty->encode($ref)
+        JSON->new->utf8->canonical->pretty->encode($ref)
 
   decode_json
     This method behaves the same as "decode_json" in JSON.
 
+DEPRECIATED METHODS
   to_json (depreciated)
     This method behaves the same as "to_json" in JSON.
 

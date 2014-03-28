@@ -1,7 +1,5 @@
 package autobox::JSON;
-{
-  $autobox::JSON::VERSION = '0.0004';
-}
+$autobox::JSON::VERSION = '0.0005';
 use 5.008;
 use strict;
 use warnings;
@@ -24,7 +22,7 @@ autobox::JSON - bringing JSON functions to autobox
 
 =head1 VERSION
 
-version 0.0004
+version 0.0005
 
 =head1 SYNOPSIS
 
@@ -57,11 +55,13 @@ debug or other purposes.
 
 It is functionally the same as:
 
-    JSON->new->utf8->pretty->encode($ref)
+    JSON->new->utf8->canonical->pretty->encode($ref)
 
 =head2 decode_json
 
 This method behaves the same as L<JSON/decode_json>.
+
+=head1 DEPRECIATED METHODS
 
 =head2 to_json (depreciated)
 
@@ -98,20 +98,16 @@ at your option, any later version of Perl 5 you may have available.
 =cut
 
 package autobox::JSON::String;
-{
-  $autobox::JSON::String::VERSION = '0.0004';
-}
+$autobox::JSON::String::VERSION = '0.0005';
 require JSON;
 sub from_json { JSON::from_json(shift); }
 sub decode_json { JSON::decode_json(shift); }
 
 package autobox::JSON::Ref;
-{
-  $autobox::JSON::Ref::VERSION = '0.0004';
-}
+$autobox::JSON::Ref::VERSION = '0.0005';
 require JSON;
 sub to_json { JSON::to_json(shift); }
 sub encode_json { JSON::encode_json(shift); }
-sub encode_json_pretty { JSON->new->utf8->pretty->encode(shift); }
+sub encode_json_pretty { JSON->new->utf8->canonical->pretty->encode(shift); }
 
 1;
